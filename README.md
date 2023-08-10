@@ -17,7 +17,8 @@ It should work with any python >= 3.7, but we have not verified that.
 ```
 python -m venv env-yiddishtag
 source env-yiddishtag/bin/activate
-git clone git clone https://github.com/skulick/yiddishtag
+cd env-yiddishtag
+git clone https://github.com/skulick/yiddishtag
 cd yiddishtag
 pip install -r requirements.txt
 ```
@@ -37,8 +38,8 @@ Argument | Description |  Default
 `model` | model name | N/A
 `out_dir` | output directory <br> will be created if necessary | N/A
 `files` | list of files to process | N/A
-`--skiptok`,<br>`-s`        | skips the tokenization | do not skip the tokenization
-`--lineseg`,<br>`-l`         | sentence segments each line separately | concatenates all tokens together first,<br>  then sentence segments
+`--skiptok`,<br>`-s`  &nbsp; &nbsp; &nbsp;| skips the tokenization | do not skip the tokenization
+`--lineseg`,<br>`-l`  &nbsp; &nbsp; &nbsp;| sentence segments each line separately | concatenates all tokens together first,<br>  then sentence segments
 `--uni`, `-u` | adds Unicode code points to output for each token | does not add Unicode code points
 `--ext`, `-e` | adds `EXT` after each file's output name | `.tagged`
 
