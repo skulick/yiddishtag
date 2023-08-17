@@ -34,13 +34,13 @@ usage: tag.py [-h] [--ext EXT] [--skiptok] [--linebyline] [--uni] model out_dir 
 where the arguments are:
 
 Argument | Description |  Default
---- | --- | ---
+------------- | ---------- | ---
 `model` | model name | N/A
 `out_dir` | output directory <br> will be created if necessary | N/A
 `files` | list of files to process | N/A
-`--skiptok`<br>`-s`  &nbsp; &nbsp; &nbsp;| skips the tokenization | do not skip the tokenization
-`--lineseg`<br>`-l`  &nbsp; &nbsp; &nbsp;| sentence segments each line separately | concatenates all tokens together first,<br>  then sentence segments
-`--uni`<br>`-u` | adds Unicode code points to output for each token | does not add Unicode code points
+`--skiptok, -s`  &nbsp; &nbsp; &nbsp;| skips the tokenization | do not skip the tokenization
+`--lineseg, -l`  &nbsp; &nbsp; &nbsp;| sentence segments each line separately | concatenates all tokens together first,<br>  then sentence segments
+`--uni, -u` | adds Unicode code points to output for each token | does not add Unicode code points
 `--ext EXT`<br>`-e EXT` | adds `EXT` after each file's output name | `.tagged`
 
 For each file in `files`, it will read in the text, (optionally) tokenize and sentence segment the text, and write the output to the `out_dir` directory.  Each output file has the name of the input file with a `.tagged` appended after it.  
