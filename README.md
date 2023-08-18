@@ -34,18 +34,18 @@ usage: tag.py [-h] [--ext EXT] [--skiptok] [--linebyline] [--uni] model out_dir 
 where the arguments are:
 
 Argument | Description |  Default
-------------- | ---------- | ---
+-------- | -------- | ---
 `model` | model name | N/A
 `out_dir` | output directory <br> will be created if necessary | N/A
 `files` | list of files to process | N/A
-`--skiptok, -s`  &nbsp; &nbsp; &nbsp;| skips the tokenization | do not skip the tokenization
-`--lineseg, -l`  &nbsp; &nbsp; &nbsp;| sentence segments each line separately | concatenates all tokens together first,<br>  then sentence segments
-`--uni, -u` | adds Unicode code points to output for each token | does not add Unicode code points
-`--ext EXT`<br>`-e EXT` | adds `EXT` after each file's output name | `.tagged`
+`--skiptok, -s`  | skips the tokenization | do not skip the tokenization
+`--lineseg, -l`  | sentence segments each line separately | concatenates all tokens together first, then sentence segments
+`--uni,`<br>`-u` | adds Unicode code points to output for each token | does not add Unicode code points
+`--ext EXT, -e EXT` | adds `EXT` after each file's output name | `.tagged`
 
 For each file in `files`, it will read in the text, (optionally) tokenize and sentence segment the text, and write the output to the `out_dir` directory.  Each output file has the name of the input file with a `.tagged` appended after it.  
 
-The different options for segmentations are ones we have found useful for tagging different material.  The tokenization is very simple, just separating out punctuation from words.  This is contained in `tag/tokenizer.py`. The sentence segmentation and tokenization is not meant to be complete, and may need to modified for different files. 
+The different options for segmentations are ones we have found useful for tagging different material.  The tokenization is very simple, just separating out punctuation from words.  This is contained in `tag/tokenizer.py`. We have used this sentence segmentation and tokenization for files we have worked with, but it may need to modified for different input files.  
 
 ### Sample Usage
 
@@ -55,10 +55,12 @@ The command
 ```
 python tag/tag.py skulick/xlmb-ck05-yid1 ./out/ ./sample/sample.txt
 ```
-will
-use the model at https://huggingface.co/skulick/xlmb-ck05-yid1 
+will use the model at https://huggingface.co/skulick/xlmb-ck05-yid1 
 to tag `./sample/sample.txt` and
 write the tagged version to `./out/sample.txt.tagged`,
 which should be identical to the supplied `sample.txt.tagged`
 
 It is not necessary to use `tag.py`. The model is just a `flair` model, and the tagging can be done directly in python. We provide `tag.py` as a convenience and example of use with different input file possibilities. 
+
+The first time this command is run, it will download models from hugging face, which could take a few minutes.  
+
