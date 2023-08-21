@@ -1,7 +1,10 @@
 # yiddishtag
 
 A Part-of-Speech tagger for Yiddish, as described in 
-[A Part-of-Speech Tagger for Yiddish](https://arxiv.org/abs/2204.01175).  
+[A Part-of-Speech Tagger for Yiddish](https://arxiv.org/abs/2204.01175).  Please see this paper for full details of the tagset. 
+
+Please note that the tagger, as described in that paper, was trained and evaluated on a relatively small amount of text.  We welcome any feedback, either on the Issues section here, or you can send email to Seth Kulick (<skulick@ldc.upenn.edu>).
+
 
 ## Installation 
 
@@ -63,4 +66,22 @@ which should be identical to the supplied `sample.txt.tagged`
 It is not necessary to use `tag.py`. The model is just a `flair` model, and the tagging can be done directly in python. We provide `tag.py` as a convenience and example of use with different input file possibilities. 
 
 The first time this command is run, it will download models from hugging face, which could take a few minutes.  
+
+## Usage Notes
+
+The Unicode representation of Yiddish can be encoded in several ways.  The data from the Penn Parsed Corpus of Historical Yiddish that was used to train this tagger (see [here](https://github.com/skulick/ppchyprep)) used the Unicode code points
+
+```
+0x5f0	HEBREW LIGATURE YIDDISH DOUBLE VAV
+0x5f1	HEBREW LIGATURE YIDDISH VAV YOD
+0x5f2	HEBREW LIGATURE YIDDISH DOUBLE YOD
+```
+instead of the separate letters.  It also only used code points in "Hebrew block" (0590-05FF) of Unicode, not the  the "presentation forms" (FB00-FB4F).  
+
+An update will include some further optional normalization of the input to be in the character range that the tagger was trained on. 
+
+
+
+
+
 
