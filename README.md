@@ -76,9 +76,9 @@ The Unicode representation of Yiddish can be encoded in several ways.  The data 
 0x5f1	HEBREW LIGATURE YIDDISH VAV YOD
 0x5f2	HEBREW LIGATURE YIDDISH DOUBLE YOD
 ```
-instead of the separate letters.  It also only used code points in "Hebrew block" (0590-05FF) of Unicode, not the  the "presentation forms" (FB00-FB4F).  
+for tsvey vovn, vov yud, and tsvey yudn, respectively, instead of decomposing them into the separate letters.  It also only used code points in "Hebrew block" (0590-05FF) of Unicode, not the  the "presentation forms" (FB00-FB4F).  
 
-An update will include some further optional normalization of the input to be in the character range that the tagger was trained on. 
+
 
 
 
